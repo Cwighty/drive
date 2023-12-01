@@ -41,23 +41,5 @@ export const getBoard = async (): Promise<Board> => {
   const response = await axios.get(url);
   return response.data;
 };
-const controlKeys = {
-  forwards: "w",
-  backwards: "s",
-  left: "a",
-  right: "d",
-};
 
-const keydownListener = async (event: KeyboardEvent) => {
-  if (event.key === controlKeys.forwards) await move(id, "Forward");
-  if (event.key === controlKeys.backwards) await move(id, "Backward");
-  if (event.key === controlKeys.left) await move(id, "Left");
-  if (event.key === controlKeys.right) await move(id, "Right");
-};
 
-const keyupListener = async (event: KeyboardEvent) => {
-  if (event.key === controlKeys.forwards) await move(id, "StopForward");
-  if (event.key === controlKeys.backwards) await move(id, "StopBackward");
-  if (event.key === controlKeys.left) await move(id, "StopLeft");
-  if (event.key === controlKeys.right) await move(id, "StopRight");
-};
